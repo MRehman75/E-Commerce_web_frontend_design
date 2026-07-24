@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VELENZA · About Us</title>
+
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+           GLOBAL RESET & ROOTS
+        ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --gold: #C9A227;
+            --beige: #F5F1EB;
+            --bg-light: #FAFAFA;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: #1a1a1a;
+            background: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .heading-font {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+        }
+
+        .gold {
+            color: var(--gold);
+        }
+
+        .section-sub {
+            font-size: 0.6rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-body);
+            font-weight: 300;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.6rem, 5vw, 4.2rem);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            line-height: 1.15;
+        }
+
+        /* ============================================================
+           HERO BANNER - Cinematic About Header
+        ============================================================ */
+        .about-hero {
+            height: 70vh;
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+            background: var(--primary);
+        }
+
+        .about-hero .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1600&auto=format&fit=crop&q=80') center 30% / cover no-repeat;
+            transform: scale(1.04);
+            animation: heroZoom 25s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            0% {
+                transform: scale(1.04);
+            }
+
+            100% {
+                transform: scale(1.12);
+            }
+        }
+
+        .about-hero .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 60%);
+        }
+
+        .about-hero .hero-content {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .about-hero .hero-content .hero-label {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .about-hero .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 300;
+            letter-spacing: 0.06em;
+            line-height: 1.05;
+            animation: fadeUp 1.2s ease 0.5s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .about-hero .hero-content .hero-sub {
+            font-family: var(--font-body);
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 560px;
+            opacity: 0.7;
+            margin-top: 1.2rem;
+            animation: fadeUp 1.2s ease 0.8s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 12;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.55rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            animation: floatDown 2.4s ease-in-out infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 1rem;
+        }
+
+        @keyframes floatDown {
+            0% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(8px);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 0.3;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .about-hero .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-hero .hero-content .hero-sub {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* ============================================================
+           SECTION SPACING
+        ============================================================ */
+        .section-spacer {
+            padding: 100px 0;
+        }
+
+        .section-spacer-sm {
+            padding: 60px 0;
+        }
+
+        .section-spacer-lg {
+            padding: 140px 0;
+        }
+
+        /* ============================================================
+           STORY SECTION - Editorial Layout
+        ============================================================ */
+        .story-section {
+            background: #fff;
+        }
+
+        .story-section .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .story-section .story-grid .story-image {
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .story-section .story-grid .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 400px;
+            transition: transform 0.8s ease;
+        }
+
+        .story-section .story-grid .story-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .story-section .story-grid .story-text .story-label {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .story-section .story-grid .story-text h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+        }
+
+        .story-section .story-grid .story-text p {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.9;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .story-section .story-grid .story-text .signature {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--gold);
+            margin-top: 1.5rem;
+            letter-spacing: 0.08em;
+        }
+
+        .story-section .story-grid .story-text .gold-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 1rem 0 1.5rem;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 992px) {
+            .story-section .story-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .story-section .story-grid .story-image img {
+                min-height: 300px;
+            }
+
+            .story-section .story-grid .story-text {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-spacer {
+                padding: 60px 0;
+            }
+
+            .section-spacer-lg {
+                padding: 80px 0;
+            }
+        }
+
+        /* ============================================================
+           HERITAGE SECTION - Full Width Beige Background
+        ============================================================ */
+        .heritage-section {
+            background: var(--beige);
+            text-align: center;
+            position: relative;
+        }
+
+        .heritage-section .heritage-content {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .heritage-section .heritage-content .gold-line {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 1.5rem;
+            opacity: 0.3;
+        }
+
+        .heritage-section .heritage-content h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.4rem, 4vw, 3.6rem);
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            margin-bottom: 1.2rem;
+        }
+
+        .heritage-section .heritage-content p {
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 2;
+            color: #666;
+        }
+
+        /* ============================================================
+           VALUES SECTION - Premium Cards
+        ============================================================ */
+        .values-section {
+            background: #fff;
+        }
+
+        .values-section .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .value-card {
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            border-radius: 20px;
+            padding: 2.8rem 1.8rem;
+            text-align: center;
+            transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.04);
+            border-color: rgba(201, 162, 39, 0.1);
+        }
+
+        .value-card .icon-wrapper {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: rgba(201, 162, 39, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem;
+            transition: 0.3s;
+        }
+
+        .value-card:hover .icon-wrapper {
+            background: rgba(201, 162, 39, 0.12);
+            transform: scale(1.05);
+        }
+
+        .value-card .icon-wrapper i {
+            font-size: 2.2rem;
+            color: var(--gold);
+        }
+
+        .value-card h5 {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .value-card p {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #888;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           TEAM SECTION
+        ============================================================ */
+        .team-section {
+            background: var(--bg-light);
+        }
+
+        .team-card {
+            text-align: center;
+            transition: 0.4s;
+        }
+
+        .team-card .team-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1rem;
+            border: 3px solid rgba(201, 162, 39, 0.1);
+            transition: 0.3s;
+        }
+
+        .team-card:hover .team-image {
+            border-color: var(--gold);
+            transform: scale(1.02);
+        }
+
+        .team-card .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-card h6 {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .team-card .team-role {
+            font-family: var(--font-body);
+            font-size: 0.75rem;
+            font-weight: 300;
+            color: var(--gold);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .team-card .team-bio {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #888;
+            margin-top: 0.5rem;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ============================================================
+           MILESTONE SECTION
+        ============================================================ */
+        .milestone-section {
+            background: var(--primary);
+            color: #fff;
+            padding: 80px 0;
+        }
+
+        .milestone-section .milestone-number {
+            font-family: var(--font-heading);
+            font-size: 3.6rem;
+            font-weight: 300;
+            color: var(--gold);
+            letter-spacing: 0.04em;
+        }
+
+        .milestone-section .milestone-label {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            margin-top: 0.2rem;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media (max-width: 768px) {
+            .value-card {
+                padding: 2rem 1.2rem;
+            }
+
+            .milestone-section .milestone-number {
+                font-size: 2.8rem;
+            }
+
+            .team-card .team-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-hero .hero-content h1 {
+                font-size: 2.4rem;
+            }
+
+            .heritage-section .heritage-content p {
+                font-size: 0.95rem;
+            }
+
+            .value-card .icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+
+            .value-card .icon-wrapper i {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    ABOUT HERO - Cinematic Banner
+    ============================================================ -->
+    <section class="about-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-label">✦ About VELENZA</span>
+            <h1>Where Heritage<br />Meets Modernity</h1>
+            <p class="hero-sub">A celebration of Pakistani craftsmanship, redefined for the contemporary world.</p>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    STORY SECTION - Editorial Split Layout
+    ============================================================ -->
+    <section class="section-spacer story-section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-image" data-aos="fade-right" data-aos-duration="800">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=800&auto=format&fit=crop&q=80"
+                        alt="VELENZA Story" />
+                </div>
+                <div class="story-text" data-aos="fade-left" data-aos-duration="800" data-aos-delay="100">
+                    <span class="story-label">Our Story</span>
+                    <h2>Timeless Elegance,<br />Modern Soul</h2>
+                    <div class="gold-divider"></div>
+                    <p>
+                        VELENZA was born from a deep reverence for Pakistan's rich textile
+                        heritage and a vision to bring it to the global stage. Every piece
+                        we create is a dialogue between tradition and innovation — where
+                        centuries-old techniques meet contemporary silhouettes.
+                    </p>
+                    <p>
+                        From the bustling bazaars of Lahore to the fashion capitals of the
+                        world, our journey is one of passion, precision, and an unwavering
+                        commitment to quality.
+                    </p>
+                    <div class="signature">— VELENZA Atelier</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    HERITAGE SECTION - Full Width Beige
+    ============================================================ -->
+    <section class="section-spacer-lg heritage-section">
+        <div class="container">
+            <div class="heritage-content" data-aos="fade-up">
+                <span class="section-sub">Heritage</span>
+                <div class="gold-line"></div>
+                <h2>Preserving the Art of<br />Pakistani Craftsmanship</h2>
+                <p>
+                    For generations, Pakistan has been home to some of the world's most
+                    exquisite textile traditions. At VELENZA, we honor this legacy by
+                    collaborating with master artisans who keep these ancient techniques
+                    alive. From hand-woven khadi to intricate embroidery, every garment
+                    tells a story of skill, patience, and cultural pride.
+                </p>
+                <p style="margin-top:1.2rem;">
+                    Our commitment goes beyond fashion — it's about preserving a way of
+                    life, supporting local communities, and celebrating the beauty of
+                    handmade textiles in an increasingly automated world.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    VALUES SECTION - Premium Cards
+    ============================================================ -->
+    <section class="section-spacer values-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-sub">Our Values</span>
+                <h2 class="section-title">What We Stand For</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6" data-aos="flip-up" data-aos-delay="50">
+                    <div class="value-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h5>Premium Quality</h5>
+                        <p>Uncompromising standards in every piece we create</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="flip-up" data-aos-delay="100">
+                    <div class="value-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <h5>Artisanal Craft</h5>
+                        <p>Handcrafted with time-honored traditional techniques</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="flip-up" data-aos-delay="150">
+                    <div class="value-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h5>Sustainable</h5>
+                        <p>Ethical practices and environmental consciousness</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="flip-up" data-aos-delay="200">
+                    <div class="value-card">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h5>Timeless</h5>
+                        <p>Designs that transcend seasons and fleeting trends</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    MILESTONE SECTION
+    ============================================================ -->
+    <section class="milestone-section">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="50">
+                    <div class="milestone-number">2018</div>
+                    <div class="milestone-label">Founded</div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="milestone-number">500+</div>
+                    <div class="milestone-label">Artisans</div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="milestone-number">15+</div>
+                    <div class="milestone-label">Countries</div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="milestone-number">100%</div>
+                    <div class="milestone-label">Handcrafted</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    TEAM SECTION
+    ============================================================ -->
+    <section class="section-spacer team-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <span class="section-sub">The Atelier</span>
+                <h2 class="section-title">Meet the Visionaries</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="50">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80"
+                                alt="Team Member" />
+                        </div>
+                        <h6>Ahmed Hassan</h6>
+                        <div class="team-role">Creative Director</div>
+                        <p class="team-bio">Visionary behind VELENZA's aesthetic language</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&auto=format&fit=crop&q=80"
+                                alt="Team Member" />
+                        </div>
+                        <h6>Fatima Noor</h6>
+                        <div class="team-role">Head of Design</div>
+                        <p class="team-bio">Master of textile innovation and pattern</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&auto=format&fit=crop&q=80"
+                                alt="Team Member" />
+                        </div>
+                        <h6>Omar Sheikh</h6>
+                        <div class="team-role">Master Artisan</div>
+                        <p class="team-bio">Preserving traditional weaving techniques</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80"
+                                alt="Team Member" />
+                        </div>
+                        <h6>Zara Malik</h6>
+                        <div class="team-role">Creative Strategist</div>
+                        <p class="team-bio">Bridging tradition with contemporary culture</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            once: true,
+            easing: 'ease-out-cubic',
+            offset: 40
+        });
+    </script>
+</body>
+
+</html>

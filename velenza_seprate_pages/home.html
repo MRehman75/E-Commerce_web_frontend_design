@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VELENZA · Home</title>
+
+    <!-- Bootstrap 5 & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --gold: #C9A227;
+            --beige: #F5F1EB;
+            --bg-light: #FAFAFA;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: #1a1a1a;
+            background: #fff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .heading-font {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+
+        .gold {
+            color: var(--gold);
+        }
+
+        /* HERO SLIDER */
+        .hero-slider {
+            height: 85vh;
+            min-height: 600px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-slider .carousel-item {
+            height: 85vh;
+            min-height: 600px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-slider .carousel-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 60%);
+        }
+
+        .hero-slider .carousel-item .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 8%;
+            transform: translateY(-50%);
+            z-index: 10;
+            color: #fff;
+            max-width: 580px;
+        }
+
+        .hero-slider .carousel-item .hero-content .hero-label {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-slider .carousel-item .hero-content h1 {
+            font-size: clamp(2.8rem, 8vw, 4.8rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-slider .carousel-item .hero-content p {
+            font-size: 1rem;
+            font-weight: 300;
+            max-width: 420px;
+            opacity: 0.85;
+            margin: 1.2rem 0 2rem;
+            letter-spacing: 0.02em;
+            line-height: 1.7;
+        }
+
+        .btn-hero {
+            background: #fff;
+            color: #111;
+            border: none;
+            padding: 0.7rem 2.4rem;
+            border-radius: 60px;
+            font-weight: 500;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 6px 28px rgba(0, 0, 0, 0.06);
+            margin-right: 0.8rem;
+        }
+
+        .btn-hero:hover {
+            background: var(--gold);
+            color: #fff;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(201, 162, 39, 0.15);
+        }
+
+        .btn-hero-outline {
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: #fff;
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-hero-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #fff;
+            color: #fff;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            padding: 18px;
+            background-size: 40%;
+            backdrop-filter: blur(4px);
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .carousel-control-prev-icon:hover,
+        .carousel-control-next-icon:hover {
+            background-color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 12;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.55rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.3rem;
+            animation: floatDown 2.4s ease-in-out infinite;
+        }
+
+        .scroll-indicator i {
+            font-size: 1rem;
+        }
+
+        @keyframes floatDown {
+            0% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(8px);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 0.3;
+            }
+        }
+
+        /* SECTION SPACING */
+        .section-spacer {
+            padding: 80px 0;
+        }
+
+        .section-spacer-sm {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .section-sub {
+            font-size: 0.6rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 0.3rem;
+        }
+
+        /* CATEGORIES */
+        .category-card {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            height: 280px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.02);
+            transition: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-card:hover {
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0.35) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.8rem;
+        }
+
+        .category-overlay h5 {
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .category-card {
+                height: 200px;
+            }
+        }
+
+        /* PRODUCT CARDS */
+        .product-card {
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+            transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.02);
+            height: 100%;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 56px rgba(0, 0, 0, 0.04);
+        }
+
+        .product-card .img-wrap {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1/1.2;
+        }
+
+        .product-card .img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .img-wrap img {
+            transform: scale(1.02);
+        }
+
+        .product-card .img-wrap .hover-img {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .product-card:hover .img-wrap .hover-img {
+            opacity: 1;
+        }
+
+        .product-card .product-info {
+            padding: 1rem 0.8rem 1.2rem;
+        }
+
+        .product-card .product-info h6 {
+            font-weight: 400;
+            font-size: 0.85rem;
+            margin-bottom: 0.1rem;
+        }
+
+        .product-card .product-info .price {
+            font-weight: 500;
+            color: #111;
+            font-size: 0.85rem;
+        }
+
+        .product-card .product-info .old-price {
+            color: #bbb;
+            text-decoration: line-through;
+            font-size: 0.75rem;
+            margin-left: 0.4rem;
+        }
+
+        .badge-modern {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--gold);
+            color: #fff;
+            font-size: 0.5rem;
+            letter-spacing: 0.1em;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            z-index: 5;
+        }
+
+        .quick-actions {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 0.8rem;
+            background: linear-gradient(0deg, rgba(255, 255, 255, 0.92) 0%, transparent 100%);
+            transform: translateY(100%);
+            transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            justify-content: center;
+            gap: 0.6rem;
+            opacity: 0;
+            z-index: 6;
+        }
+
+        .product-card:hover .quick-actions {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .quick-actions i {
+            background: #fff;
+            padding: 0.4rem 0.6rem;
+            border-radius: 60px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            font-size: 0.8rem;
+            color: #333;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .quick-actions i:hover {
+            background: var(--gold);
+            color: #fff;
+        }
+
+        /* PROMO */
+        .promo-campaign {
+            background: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1200&auto=format&fit=crop&q=80') center 40% / cover no-repeat;
+            padding: 80px 0;
+            position: relative;
+            border-radius: 20px;
+            margin: 10px 0;
+        }
+
+        .promo-campaign::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.15) 70%);
+            border-radius: 20px;
+        }
+
+        .promo-campaign * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .promo-campaign .countdown {
+            font-size: 2.4rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .hero-slider {
+                height: 70vh;
+                min-height: 450px;
+            }
+
+            .hero-slider .carousel-item {
+                height: 70vh;
+                min-height: 450px;
+            }
+
+            .hero-slider .carousel-item .hero-content {
+                left: 5%;
+                right: 5%;
+                max-width: 100%;
+            }
+
+            .hero-slider .carousel-item .hero-content p {
+                max-width: 100%;
+            }
+
+            .section-spacer {
+                padding: 50px 0;
+            }
+
+            .promo-campaign {
+                padding: 50px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-slider .carousel-item .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .btn-hero {
+                padding: 0.5rem 1.4rem;
+                font-size: 0.6rem;
+            }
+
+            .hero-slider {
+                height: 60vh;
+                min-height: 380px;
+            }
+
+            .hero-slider .carousel-item {
+                height: 60vh;
+                min-height: 380px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    HERO SLIDER
+    ============================================================ -->
+    <div id="heroCarousel" class="carousel slide hero-slider" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active"
+                style="background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1600&auto=format&fit=crop&q=80');">
+                <div class="hero-content">
+                    <span class="hero-label"><i class="bi bi-stars me-2"></i> New Collection 2026</span>
+                    <h1>Elevate Your<br />Everyday Style</h1>
+                    <p>Discover timeless fashion crafted for confidence, comfort, and sophistication.</p>
+                    <div>
+                        <a href="#" class="btn btn-hero">Shop Men</a>
+                        <a href="#" class="btn btn-hero btn-hero-outline">Shop Women</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item"
+                style="background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=1600&auto=format&fit=crop&q=80');">
+                <div class="hero-content">
+                    <span class="hero-label"><i class="bi bi-leaf me-2"></i> Autumn 2026</span>
+                    <h1>Autumn<br />Essentials</h1>
+                    <p>Luxurious trench coats, knitwear and leather accessories for the modern connoisseur.</p>
+                    <div>
+                        <a href="#" class="btn btn-hero">Explore Collection</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item"
+                style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600&auto=format&fit=crop&q=80');">
+                <div class="hero-content">
+                    <span class="hero-label"><i class="bi bi-diamond me-2"></i> Luxury Edit</span>
+                    <h1>Luxury Meets<br />Simplicity</h1>
+                    <p>Minimal studio fashion for the modern Pakistani — where heritage meets contemporary luxury.</p>
+                    <div>
+                        <a href="#" class="btn btn-hero">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <i class="bi bi-chevron-down"></i>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    CATEGORIES
+    ============================================================ -->
+    <section class="section-spacer">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <span class="section-sub">Edit</span>
+                <h2 class="section-title">Shop by Category</h2>
+            </div>
+            <div class="row g-3 g-md-4">
+                <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="50">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&auto=format&fit=crop"
+                            alt="Men" />
+                        <div class="category-overlay">
+                            <h5>Men</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&auto=format&fit=crop"
+                            alt="Women" />
+                        <div class="category-overlay">
+                            <h5>Women</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&auto=format&fit=crop"
+                            alt="Jackets" />
+                        <div class="category-overlay">
+                            <h5>Jackets</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop"
+                            alt="Shoes" />
+                        <div class="category-overlay">
+                            <h5>Shoes</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop"
+                            alt="Accessories" />
+                        <div class="category-overlay">
+                            <h5>Accessories</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&auto=format&fit=crop"
+                            alt="New" />
+                        <div class="category-overlay">
+                            <h5>New Arrivals</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FEATURED PRODUCTS
+    ============================================================ -->
+    <section class="section-spacer" style="background:#fafafa;">
+        <div class="container">
+            <div class="text-center mb-4" data-aos="fade-up">
+                <span class="section-sub">Essentials</span>
+                <h2 class="section-title">Featured Products</h2>
+            </div>
+            <div class="row g-3 g-md-4">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="50">
+                    <div class="product-card">
+                        <div class="img-wrap">
+                            <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&auto=format&fit=crop"
+                                alt="Hoodie" />
+                            <img class="hover-img"
+                                src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&auto=format&fit=crop"
+                                alt="Hoodie hover" />
+                            <span class="badge-modern">SALE</span>
+                            <div class="quick-actions"><i class="bi bi-eye"></i><i class="bi bi-heart"></i><i
+                                    class="bi bi-bag-plus"></i></div>
+                        </div>
+                        <div class="product-info">
+                            <h6>Premium Hoodie</h6>
+                            <span class="price">$89</span><span class="old-price">$120</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="img-wrap">
+                            <img src="https://images.unsplash.com/photo-1554568218-0f1715e72254?w=400&auto=format&fit=crop"
+                                alt="Shirt" />
+                            <img class="hover-img"
+                                src="https://images.unsplash.com/photo-1554568218-0f1715e72254?w=400&auto=format&fit=crop&crop=center&v=2"
+                                alt="Shirt hover" />
+                            <span class="badge-modern" style="background:#111;">NEW</span>
+                            <div class="quick-actions"><i class="bi bi-eye"></i><i class="bi bi-heart"></i><i
+                                    class="bi bi-bag-plus"></i></div>
+                        </div>
+                        <div class="product-info">
+                            <h6>Oversized Shirt</h6>
+                            <span class="price">$64</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="150">
+                    <div class="product-card">
+                        <div class="img-wrap">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&auto=format&fit=crop"
+                                alt="Blazer" />
+                            <img class="hover-img"
+                                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&auto=format&fit=crop&crop=center&v=2"
+                                alt="Blazer hover" />
+                            <span class="badge-modern" style="background:#111;">LIMITED</span>
+                            <div class="quick-actions"><i class="bi bi-eye"></i><i class="bi bi-heart"></i><i
+                                    class="bi bi-bag-plus"></i></div>
+                        </div>
+                        <div class="product-info">
+                            <h6>Classic Blazer</h6>
+                            <span class="price">$149</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="img-wrap">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop"
+                                alt="Jeans" />
+                            <img class="hover-img"
+                                src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&auto=format&fit=crop&crop=center&v=2"
+                                alt="Jeans hover" />
+                            <div class="quick-actions"><i class="bi bi-eye"></i><i class="bi bi-heart"></i><i
+                                    class="bi bi-bag-plus"></i></div>
+                        </div>
+                        <div class="product-info">
+                            <h6>Slim Fit Jeans</h6>
+                            <span class="price">$79</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PROMO
+    ============================================================ -->
+    <section class="section-spacer-sm">
+        <div class="container">
+            <div class="promo-campaign text-center text-white" data-aos="zoom-in">
+                <span class="section-sub" style="color:var(--gold);">Mid Season</span>
+                <h2 class="display-4 fw-bold">Up to 50% Off</h2>
+                <div class="countdown mt-2">03 : 14 : 28</div>
+                <p class="mt-2 opacity-75">Luxury essentials — for a limited time.</p>
+                <a href="#" class="btn btn-hero bg-white text-dark mt-2">Shop Sale</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SCRIPTS
+    ============================================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 700,
+            once: true,
+            easing: 'ease-out-cubic'
+        });
+    </script>
+</body>
+
+</html>
